@@ -1,7 +1,7 @@
 package com.divyanka.campus_edge.controller;
 
-import com.campusedge.dto.*;
-import com.campusedge.service.AuthService;
+import com.divyanka.campus_edge.dto.*;
+import com.divyanka.campus_edge.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
