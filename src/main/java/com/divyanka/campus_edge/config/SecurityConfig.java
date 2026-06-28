@@ -3,6 +3,7 @@ package com.divyanka.campus_edge.config;
 import com.divyanka.campus_edge.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -40,6 +41,9 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("TPO_ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/experiences").hasAnyRole("SENIOR", "TPO_ADMIN")
+                .requestMatchers(HttpMethod.GET, "/api/experiences/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/experiences/*/upvote").authenticated()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
