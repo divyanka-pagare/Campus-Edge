@@ -14,7 +14,7 @@ jwt:
   expiry: 86400000
 
 app:
-  allowed-email-domain: pvgcoet.ac.in
+  allowed-email-domain: pvgcoenashik.org
   frontend-url: ${FRONTEND_URL:http://localhost:5173}
 
 logging:
