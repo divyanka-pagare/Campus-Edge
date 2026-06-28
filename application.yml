@@ -1,22 +1,22 @@
 spring:
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
+    url: jdbc:mysql://localhost:3306/campusedge
+    username: ${DB_USER:root}
     password: ${DB_PASS}
-  jpa:
-    hibernate:
-      ddl-auto: validate        # never auto on prod, use Flyway
-    show-sql: false
   mail:
     host: smtp-relay.brevo.com
     port: 587
-    username: ${BREVO_USER}
-    password: ${BREVO_PASS}
+    username: ${BREVO_USER:}
+    password: ${BREVO_PASS:}
 
 jwt:
   secret: ${JWT_SECRET}
-  expiry: 86400000              # 24 hours
+  expiry: 86400000
 
 app:
   allowed-email-domain: pvgcoet.ac.in
-  frontend-url: ${FRONTEND_URL}
+  frontend-url: ${FRONTEND_URL:http://localhost:5173}
+
+logging:
+  level:
+    org.springframework.security: DEBUG
