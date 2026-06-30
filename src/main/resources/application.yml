@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/campusedge
+    username: root
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: ${BREVO_USER:}
+    password: ${BREVO_PASS:}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiry: 86400000
+
+app:
+  allowed-email-domain: pvgcoenashik.org
+  frontend-url: http://localhost:5173
